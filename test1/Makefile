@@ -1,7 +1,11 @@
-t1: t1.o
-	gfortran t1.o -o t1
-t1.o: t1.f90
-	gfortran -c t1.f90
+TAR = t4
+OBJ = t4.o
+F90 = t4.f90 
+
+$(TAR): $(OBJ)
+	gfortran $(OBJ) -o $(TAR)
+$(OBJ): $(F90)
+	gfortran -c $(F90)
 .PHONY:
 clean:
-	rm -rf t1 t1.o
+	rm -rf $(TAR) $(OBJ)
